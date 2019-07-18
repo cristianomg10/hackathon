@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuariosTable extends Migration
+class CreateResponsavelRecrutamentoRhTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('responsavel_recrutamento_rh', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('login',255);
-            $table->string('senha',255);
-            $table->string('email',255);
-            $table->integer('id_pergunta_secreta');
-            $table->string('resposta_pergunta_secreta',500);
-            $table->integer('perfil');
+            $table->string('nome');
+            $table->string('email');
+            $table->integer('telefone');
+            $table->integer('id_empresa');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +31,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('responsavel_recrutamento_rh');
     }
 }
