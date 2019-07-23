@@ -14,9 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('/usuarios', 'UsuarioController' , ['except' => 'destroy']);
+Route::resource('/usuario', 'UsuarioController' , ['except' => 'destroy']);
 
-Route::delete('/usuarios/remover/{id}', "UsuarioController@destroy");
+Route::delete('/usuario/remover/{id}', "UsuarioController@destroy");
 
 Route::resource('/cursos', 'CursoController' , ['except' => 'destroy']);
 

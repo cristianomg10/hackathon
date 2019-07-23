@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Empresa extends Model
 { use SoftDeletes;
+    protected $table ="empresas";
     protected $fillable =
         ['razao_social','cnpj','area_de_atuacao','porte'];
 }

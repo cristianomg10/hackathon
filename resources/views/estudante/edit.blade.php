@@ -8,7 +8,7 @@
     <form method="post" action="/estudante/update/{{$estudante->id}}">
         @csrf
         @method('PUT')
-        <div>
+        <div class="form-group bg-light p-2 rounded">
             <label for="nome">Nome:</label>
             <input type="text" required class="form-control" name="nome" placeholder="{{$estudante->nome}}">
             <label for="id_usuario">ID Usuário:</label>
