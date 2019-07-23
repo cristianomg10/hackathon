@@ -18,7 +18,7 @@ class CreateCursosTable extends Migration
             $table->integer("id_instituicao");
             $table->string("nome");
             $table->string("turno");
-            $table->string("nível");
+            $table->string("nivel");
             $table->integer("id_cidade");
             $table->year("ano_inicial_oferta");
             $table->integer("semestre_inicial_oferta");

@@ -1,51 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>index</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-        #excluir{
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">nome</th>
-        <th scope="col">id_curso</th>
-        <th scope="col">Funcões</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($Turmas as $Turma)
-        <tr>
+@extends('../layout')
 
-            <th scope="row">{{$Turma->id}}</th>
-            <td>{{$Turma->nome}}</td>
-            <td>{{$Turma->id_curso}}</td>
-            <td><a href="{{Route('turmas.show',["curso"=>$Turma->id])}}"> <button class="btn btn-success">Visualizar</button></a>
-                <a href="{{Route('turmas.edit',["curso"=>$Turma->id])}}"> <button class="btn btn-primary">Editar</button></a>
-                <form id="excluir" method="post" action="/turmas/remover/{{$Turma->id}}"
-                      onsubmit="return confirm('tem certeza que deseja removier {{$Turma->nome}}')">
+@section('header')
+    <h1 class="display-4">TURMAS</h1>
+@endsection
+
+@section('content')
+    <ul class="list-group">
+    @foreach($Turmas as $Turma)
+            <li class="list-group-item align-items-center">ID #{{$Turma->id}} | Nome: {{$Turma->nome}} | ID Curso #{{$Turma->id_curso}}
+                <form method="get" action="/turmas/{{$Turma->id}}/edit/">
+                    @csrf
+                    <button class="btn btn-secondary mt-2 ">Editar</button>
+                </form>
+                <form method="post" action="/turmas/remover/{{$Turma->id}}" onsubmit="return confirm('Tem certeza que deseja excluir {{$Turma->nome}} ?')">
                     @csrf
                     @method('DELETE')
-                    <button class=" btn btn-danger">excluir</button>
+                    <button class="btn btn-danger  mt-2  ">Excluir</button>
                 </form>
-            </td>
 
-        </tr>
+            </li>
     @endforeach
-    </tbody>
-</table>
-</body>
-</html>
-
+    </ul>
+    <form method="get" action="turmas/create">
+        @csrf
+        <button class="btn btn btn-success mt-2 ">Adicionar</button>
+    </form>
+@endsection
 

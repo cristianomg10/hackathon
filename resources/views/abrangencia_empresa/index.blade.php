@@ -1,7 +1,7 @@
 @extends('../layout')
 
 @section('header')
-    <h1 class="display-4">CIDADES</h1>
+    <h1 class="display-4">ABRANGÊNCIA DA EMPRESA</h1>
 @endsection
 
 @section('content')

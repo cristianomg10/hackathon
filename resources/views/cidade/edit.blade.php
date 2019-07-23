@@ -8,7 +8,7 @@
     <form method="post" action="/cidade/update/{{$cidade->id}}">
         @csrf
         @method('PUT')
-        <div>
+        <div class="form-group bg-light p-2 rounded">
             <label for="nome">Nome:</label>
             <input type="text" required class="form-control" name="nome" placeholder="{{$cidade->nome}}">
             <label for="estado">Estado:</label>
