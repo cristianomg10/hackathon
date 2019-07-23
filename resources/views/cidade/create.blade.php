@@ -5,9 +5,9 @@
 @endsection
 
 @section('content')
-    <form method="post">
+    <form method="post" >
         @csrf
-        <div>
+        <div class="form-group bg-light p-2 rounded">
             <label for="nome">Nome:</label>
             <input type="text" required class="form-control" name="nome">
             <label for="estado">Estado:</label>

@@ -8,7 +8,7 @@
     <form method="post" action="/responsavel_recrutamento_rh/update/{{$rrrh->id}}">
         @csrf
         @method('PUT')
-        <div>
+        <div class="form-group bg-light p-2 rounded">
             <label for="nome">Nome:</label>
             <input type="text" required class="form-control" name="nome" placeholder="{{$rrrh->nome}}" >
             <label for="email">E-mail:</label>

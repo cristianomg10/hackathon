@@ -1,61 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>index</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-        #excluir{
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">instituição</th>
-        <th scope="col">nome</th>
-        <th scope="col">turno</th>
-        <th scope="col">nivel</th>
-        <th scope="col">cidade</th>
-        <th scope="col">ano ingresso</th>
-        <th scope="col">semestre ingresso</th>
-        <th scope="col">Funcões</th>
-    </tr>
-    </thead>
-    <tbody>
+@extends('../layout')
+
+@section('header')
+    <h1 class="display-4">CURSOS</h1>
+@endsection
+
+@section('content')
+<ul class="list-group">
     @foreach($Cursos as $Curso)
-        <tr>
+        <li class="list-group-item align-items-center">ID #{{$Curso->id}} | Instituição: {{$Curso->id_instituicao}} | Nome: {{$Curso->nome}} | Turno: {{$Curso->turno}} | Nivel: {{$Curso->nivel}} | Cidade {{$Curso->cidade}} | Ano ingresso: {{$Curso->ano_inicial_oferta}} | Semestre ingresso: {{$Curso->semestre_inicial_oferta}} |
+            <form method="get" action="/cursos/{{$Curso->id}}/edit/">
+                @csrf
+                <button class="btn btn-secondary mt-2 ">Editar</button>
+            </form>
+            <form method="post" action="/cursos/remover/{{$Curso->id}}" onsubmit="return confirm('Tem certeza que deseja excluir {{$Curso->nome}} ?')">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger  mt-2  ">Excluir</button>
+            </form>
 
-            <th scope="row">{{$Curso->id}}</th>
-            <td>{{$Curso->id_instituicao}}</td>
-            <td>{{$Curso->nome}}</td>
-            <td>{{$Curso->turno}}</td>
-            <td>{{$Curso->nivel}}</td>
-            <td>{{$Curso->id_cidade}}</td>
-            <td>{{$Curso->ano_inicial_oferta}}</td>
-            <td>{{$Curso->semestre_inicial_oferta}}</td>
-            <td><a href="{{Route('cursos.show',["curso"=>$Curso->id])}}"> <button class="btn btn-success">Visualizar</button></a>
-                <a href="{{Route('cursos.edit',["curso"=>$Curso->id])}}"> <button class="btn btn-primary">Editar</button></a>
-                <form id="excluir" method="post" action="/cursos/remover/{{$Curso->id}}"
-                      onsubmit="return confirm('tem certeza que deseja removier {{$Curso->nome}}')">
-                    @csrf
-                    @method('DELETE')
-                    <button class=" btn btn-danger">excluir</button>
-                </form>
-            </td>
-
-        </tr>
+        </li>
     @endforeach
-    </tbody>
-</table>
-</body>
-</html>
+</ul>
+<form method="get" action="cursos/create">
+    @csrf
+    <button class="btn btn btn-success mt-2 ">Adicionar</button>
+</form>
+@endsection
 
 
