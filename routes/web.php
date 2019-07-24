@@ -15,24 +15,43 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('/usuario', 'UsuarioController' , ['except' => 'destroy']);
-
 Route::delete('/usuario/remover/{id}', "UsuarioController@destroy");
 
 Route::resource('/cursos', 'CursoController' , ['except' => 'destroy']);
-
 Route::delete('/cursos/remover/{id}', "CursoController@destroy");
 
 Route::resource('/turmas', 'TurmaController' , ['except' => 'destroy']);
-
 Route::delete('/turmas/remover/{id}', "TurmaController@destroy");
 
 Route::resource('/perguntas', 'PerguntaSecretaController' , ['except' => 'destroy']);
-
 Route::delete('/perguntas/remover/{id}', "PerguntaSecretaController@destroy");
 
 Route::resource('/empresas', 'EmpresaController' , ['except' => 'destroy']);
-
 Route::delete('/empresas/remover/{id}', "EmpresaController@destroy");
+
+Route::resource('/vagas', 'VagaEmpregoController' , ['except' => 'destroy']);
+Route::delete('/vagas/remover/{id}', "VagaEmpregoController@destroy");
+
+Route::resource('/enquetes', 'EnqueteController' , ['except' => 'destroy']);
+Route::delete('/enquetes/remover/{id}', "EnqueteController@destroy");
+
+Route::resource('/postagens', 'PostagemForumController' , ['except' => 'destroy']);
+Route::delete('/postagens/remover/{id}', "PostagemForumController@destroy");
+
+Route::resource('/opcoes', 'OpcaoRespostaEnqueteController' , ['except' => 'destroy']);
+Route::delete('/opcoes/remover/{id}', "OpcaoRespostaEnqueteController@destroy");
+
+Route::resource('/respostas', 'RespostaEnqueteController' , ['except' => 'destroy']);
+Route::delete('/respostas/remover/{id}', "RespostaEnqueteController@destroy");
+
+Route::resource('/questionarios', 'QuestionariosController' , ['except' => 'destroy']);
+Route::delete('/questionarios/remover/{id}', "QuestionariosController@destroy");
+
+Route::resource('/alvos', 'CursoAlvoVagaController' , ['except' => 'destroy']);
+Route::delete('/alvos/remover/{id}', "CursoAlvoVagaController@destroy");
+
+Route::resource('/opcaoRespostas', 'OpcaoRespostaQuestionarioController' , ['except' => 'destroy']);
+Route::delete('/opcaoRespostas/remover/{id}', "OpcaoRespostaQuestionarioController@destroy");
 
 Route::get('/cidade', 'CidadeController@index')->name("indexCidade");
 Route::get('/cidade/create','CidadeController@create')->name("createCidade");
