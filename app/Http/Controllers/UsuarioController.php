@@ -11,7 +11,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $Usuarios=Usuario::all();
-        return view("index")->with(['Usuarios'=>$Usuarios]);
+        return view("/usuario/index")->with(['Usuarios'=>$Usuarios]);
 
 
     }
@@ -19,7 +19,7 @@ class UsuarioController extends Controller
     public function create()
     {
         $Perguntas=PerguntaSecreta::all();
-        return view ("create")->with(['Perguntas'=>$Perguntas]);
+        return view ("/usuario/create")->with(['Perguntas'=>$Perguntas]);
     }
 
 
@@ -33,19 +33,19 @@ class UsuarioController extends Controller
     public function show($id)
     {
         $Usuario = Usuario::find($id);
-        return view("show")->with(["Usuario"=>$Usuario]);
+        return view("/usuario/show")->with(["Usuario"=>$Usuario]);
     }
 
     public function edit($id)
     {
         $Usuario = Usuario::find($id);
-       return view ("edit")->with(["Usuario"=>$Usuario]);
+       return view ("/usuario/edit")->with(["Usuario"=>$Usuario]);
     }
 
     public function update(Request $request, $id)
     {
         $Usuario = Usuario::find($id)->update($request->all());
-        return redirect()->Route("index");
+        return redirect()->Route("usuario.index");
 
     }
 

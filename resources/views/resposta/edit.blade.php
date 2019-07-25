@@ -12,16 +12,16 @@
         <div class="form-group bg-light p-2 rounded">
             <label  for="login">Usuario:</label>
 
-            <input type="text" class="form-control" id="login" placeholder="{{$Resposta->id_usuario}}" name="opcao">
+            <input type="text" class="form-control" id="login" placeholder="{{$Resposta->id_usuario}}" name="opcao" required>
 
 
             <label for="email">Enquete:</label>
 
-            <input type="text" class="form-control" id="email" placeholder="{{$Resposta->id_enquete}}" name="id_enquete">
+            <input type="text" class="form-control" id="email" placeholder="{{$Resposta->id_enquete}}" name="id_enquete" required>
 
             <label for="email">Opção da Enquete:</label>
 
-            <input type="text" class="form-control" id="email" placeholder="{{$Resposta->id_opcao_enquete}}" name="id_opcao_enquete">
+            <input type="text" class="form-control" id="email" placeholder="{{$Resposta->id_opcao_enquete}}" name="id_opcao_enquete" required>
 
             <input type="submit" class="btn btn-primary mt-2">
 

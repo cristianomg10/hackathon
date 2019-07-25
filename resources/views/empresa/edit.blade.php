@@ -13,16 +13,16 @@
         @method('PUT')
         <div class="form-group bg-light p-2 rounded">
             <label for="razao_social">Razão Social:</label>
-            <input type="text" class="form-control" id="razao_social" placeholder="{{$Empresa->razao_social}}" name="razao_social">
+            <input type="text" class="form-control" id="razao_social" placeholder="{{$Empresa->razao_social}}" name="razao_social" required>
 
             <label  for="email">CNPJ:</label>
-            <input type="text" class="form-control" id="email" placeholder="{{$Empresa->cnpj}}" name="cnpj">
+            <input type="text" class="form-control" id="email" placeholder="{{$Empresa->cnpj}}" name="cnpj" required>
 
             <label for="login">Area de Atuação</label>
-            <input type="text" class="form-control" id="login" placeholder="{{$Empresa->area_de_atuacao}}" name="area_de_atuacao">
+            <input type="text" class="form-control" id="login" placeholder="{{$Empresa->area_de_atuacao}}" name="area_de_atuacao" required>
 
             <label  for="email">Porte:</label>
-            <input type="text" class="form-control" id="email" placeholder="{{$Empresa->porte}}" name="porte">
+            <input type="text" class="form-control" id="email" placeholder="{{$Empresa->porte}}" name="porte" required>
 
             <input type="submit" class="btn btn-primary mt-2">
         </div>

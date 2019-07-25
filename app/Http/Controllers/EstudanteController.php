@@ -43,4 +43,9 @@ class EstudanteController extends Controller
         Estudante::find($id)->update($request->all());
         return redirect("/estudante");
     }
+    public function show($id)
+    {
+        $estudante = Estudante::find($id);
+        return view("estudante/show")->with(['estudante'=>$estudante]);
+    }
 }

@@ -12,19 +12,19 @@
         @method('PUT')
         <div class="form-group bg-light p-2 rounded">
             <label for="login">Titulo:</label>
-            <input type="text" class="form-control" id="login" placeholder="{{$Vagas->titulo}}" name="titulo">
+            <input type="text" class="form-control" id="login" placeholder="{{$Vagas->titulo}}" name="titulo" required>
 
             <label  for="email">Texto:</label>
-            <textarea class="form-control" id="email" placeholder="{{$Vagas->texto}}" name="texto"></textarea>
+            <textarea class="form-control" id="email" placeholder="{{$Vagas->texto}}" name="texto" required></textarea>
 
             <label  for="texto">Imagem:</label>
-            <input type="file" class="form-control" id="texto" placeholder="{{$Vagas->imagem}}" name="imagem" value="teste">
+            <input type="file" class="form-control" id="texto" placeholder="{{$Vagas->imagem}}" name="imagem" value="teste" required>
 
             <label  for="texto">Validade:</label>
-            <input type="date" class="form-control" id="texto" placeholder="{{$Vagas->validade}}" name="validade">
+            <input type="date" class="form-control" id="texto" placeholder="{{$Vagas->validade}}" name="validade" required>
 
             <label  for="texto">Recrutador:</label>
-           <input type="text" class="form-control" id="recrutador" placeholder="{{$Vagas->id_recrutador}}" name="id_recrutador">
+           <input type="text" class="form-control" id="recrutador" placeholder="{{$Vagas->id_recrutador}}" name="id_recrutador" required>
             </select>
 
             <input type="submit" class="btn btn-primary mt-2">

@@ -26,7 +26,7 @@
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="{{Route('usuario.create')}}">Cadastar</a>
+            <a class="nav-link" href="/usuario/create">Cadastar</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/usuario">Ver Cadastro</a>

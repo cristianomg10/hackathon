@@ -43,5 +43,10 @@ class InstituicaoController extends Controller
         Instituicao::find($id)->update($request->all());
         return redirect("/instituicao");
     }
+    public function show($id)
+    {
+        $instituicao = Instituicao::find($id);
+        return view("/instituicao/show")->with(['instituicao'=>$instituicao]);
+    }
 
 }

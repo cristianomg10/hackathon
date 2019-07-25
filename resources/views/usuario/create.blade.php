@@ -10,17 +10,17 @@
         <div class="form-group bg-light p-2 rounded">
             <label  for="login">Login:</label>
 
-                <input type="text" class="form-control" id="login" placeholder="insira o login" name="login">
+                <input type="text" class="form-control" id="login" placeholder="insira o login" name="login" required>
 
 
             <label for="email">E-mail:</label>
 
-                <input type="email" class="form-control" id="email" placeholder="insira o e-mail" name="email">
+                <input type="email" class="form-control" id="email" placeholder="insira o e-mail" name="email" required>
 
 
             <label  for="senha">Senha:</label>
 
-                <input type="password" class="form-control" id="senha" placeholder="insira a senha" name="senha">
+                <input type="password" class="form-control" id="senha" placeholder="insira a senha" name="senha" required>
 
 
             <label  for="id_pergunta_secreta">Pergunta secreta:</label>
@@ -34,7 +34,7 @@
 
             <label  for="resposta">Resposta:</label>
 
-                <input type="text" class="form-control" id="resposta" placeholder="insira a resposta" name="resposta_pergunta_secreta">
+                <input type="text" class="form-control" id="resposta" placeholder="insira a resposta" name="resposta_pergunta_secreta" required>
 
         <div class="form-group">
             <label for="Perfil">Perfil:</label>

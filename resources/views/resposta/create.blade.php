@@ -11,16 +11,16 @@
         <div class="form-group bg-light p-2 rounded">
             <label  for="login">Usuario:</label>
 
-            <input type="text" class="form-control" id="login" placeholder="insira o usuario" name="id_usuario">
+            <input type="text" class="form-control" id="login" placeholder="insira o usuario" name="id_usuario" required>
 
 
             <label for="email">Enquete:</label>
 
-            <input type="text" class="form-control" id="email" placeholder="insira a enquete" name="id_enquete">
+            <input type="text" class="form-control" id="email" placeholder="insira a enquete" name="id_enquete" required>
 
             <label for="email">Opção da Enquete:</label>
 
-            <input type="text" class="form-control" id="email" placeholder="insira a opcao" name="id_opcao_enquete">
+            <input type="text" class="form-control" id="email" placeholder="insira a opcao" name="id_opcao_enquete" required>
 
             <input type="submit" class="btn btn-primary mt-2">
 
