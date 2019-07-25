@@ -34,6 +34,12 @@ class AbrangenciaEmpresaController extends Controller
          AbrangenciaEmpresa::destroy($request->id);
         return redirect("/abrangencia_empresa");
     }
+    public function show($id)
+    {
+        $abrangenciaempresas = AbrangenciaEmpresa::find($id);
+        return view("abrangencia_empresa/show")->with(['abrangenciaempresas'=>$abrangenciaempresas]);
+    }
+
     public function edit($id){
         $abrangenciaempresas = AbrangenciaEmpresa::find($id);
         return view('/abrangencia_empresa/edit')->with('abrangenciaempresas',$abrangenciaempresas);

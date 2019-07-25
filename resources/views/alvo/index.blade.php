@@ -7,17 +7,25 @@
 @section('content')
     <ul class="list-group">
         @foreach($Alvos as $Alvo)
-            <li class="list-group-item align-items-center">ID# {{$Alvo->id}} | Curso: {{$Alvo->id_curso}} | Vaga: {{$Alvo->id_vaga}} |
-                <form method="get" action="/alvos/{{$Alvo->id}}/edit/">
-                    @csrf
-                    <button class="btn btn-secondary mt-2 ">Editar</button>
-                </form>
-                <form id="excluir" method="post" action="/alvos/remover/{{$Alvo->id}}"
-                      onsubmit="return confirm('tem certeza que deseja excluir o Curso alvo vaga de numero {{$Alvo->id}}')">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-danger  mt-2  ">Excluir</button>
-                </form>
+            <li class="list-group-item align-items-center d-flex justify-content-between"">ID# {{$Alvo->id}}
+                <span class="d-flex">
+                     <form method="get" action="/alvos/{{$Alvo->id}}">
+                        @csrf
+                         <button class="btn btn-secondary mr-1"> <i class="fas fa-eye"></i></button>
+                    </form>
+                    <form method="get" action="/alvos/{{$Alvo->id}}/edit/">
+                        @csrf
+                         <button class="btn btn-info mr-1"> <i class="far fa-edit"></i> </button>
+                    </form>
+                    <form id="excluir" method="post" action="/alvos/remover/{{$Alvo->id}}"
+                          onsubmit="return confirm('tem certeza que deseja excluir o Curso alvo vaga de numero {{$Alvo->id}}')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                    </form>
+
+
+                </span>
 
 
             </li>

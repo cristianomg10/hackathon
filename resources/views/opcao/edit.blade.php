@@ -11,12 +11,12 @@
         <div class="form-group bg-light p-2 rounded">
             <label  for="login">Opção:</label>
 
-            <input type="text" class="form-control" id="login" placeholder="{{$Opcao->opcao}}" name="id_usuario">
+            <input type="text" class="form-control" id="login" placeholder="{{$Opcao->opcao}}" name="id_usuario" required>
 
 
             <label for="email">Enquete:</label>
 
-            <input type="text" class="form-control" id="email" placeholder="{{$Opcao->id_enquete}}" name="id_enquete">
+            <input type="text" class="form-control" id="email" placeholder="{{$Opcao->id_enquete}}" name="id_enquete" required>
 
 
 

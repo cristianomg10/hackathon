@@ -40,7 +40,11 @@ class CidadeController extends Controller
         Cidade::find($id)->update($request->all());
         return redirect("/cidade");
     }
-
+    public function show($id)
+    {
+        $cidade = Cidade::find($id);
+        return view("/cidade/show")->with(['cidade'=>$cidade]);
+    }
 
 
 

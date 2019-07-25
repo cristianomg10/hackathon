@@ -10,12 +10,12 @@
         <div class="form-group bg-light p-2 rounded">
             <label  for="login">Opção:</label>
 
-            <input type="text" class="form-control" id="login" placeholder="insira a opcão" name="opcao">
+            <input type="text" class="form-control" id="login" placeholder="insira a opcão" name="opcao" required>
 
 
             <label for="email">Enquete:</label>
 
-            <input type="text" class="form-control" id="email" placeholder="insira a enquete" name="id_enquete">
+            <input type="text" class="form-control" id="email" placeholder="insira a enquete" name="id_enquete" required>
 
 
 

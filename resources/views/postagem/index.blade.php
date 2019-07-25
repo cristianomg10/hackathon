@@ -7,17 +7,23 @@
 @section('content')
     <ul class="list-group">
         @foreach($Postagem as $Postagem)
-            <li class="list-group-item align-items-center">ID# {{$Postagem->id}} | Titulo: {{$Postagem->titulo}} | Status: {{$Postagem->status}} | Ultima atualização {{$Postagem->ultima_atualizacao}} | Id_Usuario: {{$Postagem->id_usuario}} | Postagem Pai??:{{$Postagem->id_postagem}}|
+            <li class="list-group-item align-items-center d-flex justify-content-between">ID# {{$Postagem->id}} | Titulo: {{$Postagem->titulo}}
+                <span class="d-flex">
+                    <form method="get" action="/postagens/{{$Postagem->id}}">
+                        @csrf
+                         <button class="btn btn-secondary mr-1"> <i class="fas fa-eye"></i></button>
+                    </form>
                 <form method="get" action="/postagens/{{$Postagem->id}}/edit/">
                     @csrf
-                    <button class="btn btn-secondary mt-2 ">Editar</button>
+                    <button class="btn btn-info mr-1"> <i class="far fa-edit"></i> </button>
                 </form>
                 <form id="excluir" method="post" action="/postagens/remover/{{$Postagem->id}}"
                       onsubmit="return confirm('tem certeza que deseja excluir {{$Postagem->titulo}}')">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger  mt-2  ">Excluir</button>
+                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                 </form>
+                </span>
 
 
             </li>

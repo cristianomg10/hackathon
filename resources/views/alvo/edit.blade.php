@@ -11,10 +11,10 @@
         @method('PUT')
         <div class="form-group bg-light p-2 rounded">
             <label for="curso">Curso:</label>
-            <input type="text" class="form-control" id="curso" placeholder="{{$Alvos->id_curso}}" name="id_curso">
+             <input type="text" class="form-control" id="curso" placeholder="{{$Alvos->id_curso}}" name="id_curso" required>
 
             <label  for="cnpj">Vaga:</label>
-            <input type="text" class="form-control" id="cnpj" placeholder="{{$Alvos->id_vaga}}" name="id_vaga">
+            <input type="text" class="form-control" id="cnpj" placeholder="{{$Alvos->id_vaga}}" name="id_vaga" required>
 
             <input type="submit" class="btn btn-primary mt-2">
         </div>

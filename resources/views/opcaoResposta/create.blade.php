@@ -10,10 +10,10 @@
         @csrf
         <div class="form-group bg-light p-2 rounded">
             <label for="razao_social">Pergunta:</label>
-            <input type="text" class="form-control" id="razao_social" placeholder="insira a pergunta" name="id_pergunta">
+            <input type="text" class="form-control" id="razao_social" placeholder="insira a pergunta" name="id_pergunta" required>
 
             <label  for="cnpj">Opcao:</label>
-            <input type="text" class="form-control" id="cnpj" placeholder="insira a opção" name="opcao">
+            <input type="text" class="form-control" id="cnpj" placeholder="insira a opção" name="opcao" required>
 
             <input type="submit" class="btn btn-primary mt-2">
         </div>
