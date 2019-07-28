@@ -9,6 +9,7 @@
         <thead style="background-color:lightgreen">
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">ID USUÁRIO</th>
             <th scope="col">RAZÃO SOCIAL</th>
             <th scope="col">CNPJ</th>
             <th scope="col">ÁREA DE ATUAÇÃO</th>
@@ -21,6 +22,7 @@
         <tbody>
         <tr>
             <td>{{$Empresa->id}}</td>
+            <td>{{$Empresa->id_usuario}}</td>
             <td>{{$Empresa->razao_social}}</td>
             <td>{{$Empresa->cnpj}}</td>
             <td>{{$Empresa->area_de_atuacao}}</td>

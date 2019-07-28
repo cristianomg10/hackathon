@@ -9,6 +9,7 @@
         <thead style="background-color:lightgreen">
         <tr>
             <th scope="col">ID</th>
+            <th scope="col">ID USUARIO</th>
             <th scope="col">NOME</th>
             <th scope="col">ID TURMA CURSO</th>
             <th scope="col">ID USUARIO</th>
@@ -20,6 +21,7 @@
         <tbody>
         <tr>
             <td>{{$estudante->id}}</td>
+            <td>{{$estudante->id_usuario}}</td>
             <td>{{$estudante->nome}}</td>
             <td>{{$estudante->id_turma_curso}}</td>
             <td>{{$estudante->id_usuario}}</td>

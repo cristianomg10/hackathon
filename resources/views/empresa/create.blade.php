@@ -20,7 +20,7 @@
 
             <label  for="porte">Porte:</label>
             <input type="text" class="form-control" id="porte" placeholder="insira o porte da empresa" name="porte" required>
-
+            <input type="hidden" name="id_usuario" value="{{$id_usuario}}">
             <input type="submit" class="btn btn-primary mt-2">
         </div>
     </form>

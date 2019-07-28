@@ -25,8 +25,10 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
+
         Usuario::create($request->all());
-        return redirect("/usuario");
+        $id_usuario = Usuario::select('id')->where('email', $request->email)->first();
+        return view("../cadastro")->with(["id_usuario"=>$id_usuario]);
     }
 
 

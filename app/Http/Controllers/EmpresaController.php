@@ -14,15 +14,17 @@ class EmpresaController extends Controller
     }
 
 
-    public function create()
+    public function create(int $id_usuario)
     {
-        return view ("empresa.create");
+        return view ("empresa/create")->with(["id_usuario"=>$id_usuario]);
     }
 
 
     public function store(Request $request)
     {
-        Empresa::create($request->all());
+        $Empresa = Empresa::create($request->all());
+        $Empresa->id_usuario=$request->id_usuario;
+        $Empresa->save();
         return redirect()->Route("empresas.index");
     }
 
