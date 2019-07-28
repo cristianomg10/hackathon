@@ -1,7 +1,7 @@
 @extends('../layout')
 
 @section('header')
-    <h1 class="display-4">ADICIONAR USUARIO</h1>
+    <h1 class="display-4">CADASTRO DE USUÁRIO</h1>
 @endsection
 
 @section('content')

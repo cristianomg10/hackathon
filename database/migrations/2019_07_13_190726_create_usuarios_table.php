@@ -17,7 +17,7 @@ class CreateUsuariosTable extends Migration
             $table->bigIncrements('id');
             $table->string('login',255);
             $table->string('senha',255);
-            $table->string('email',255);
+            $table->string('email',255)->unique();
             $table->integer('id_pergunta_secreta');
             $table->string('resposta_pergunta_secreta',500);
             $table->integer('perfil');

@@ -18,6 +18,7 @@ class CreateEstudanteTable extends Migration
             $table->string('nome');
             $table->integer('id_turma_curso');
             $table->integer('id_usuario');
+            $table->integer('id_instituicao');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -12,8 +12,9 @@ class EstudanteController extends Controller
         return view('estudante/index',compact('estudantes'));
     }
 
-    public function create(){
-        return view('estudante/create');
+    public function create(int $id_usuario)
+    {
+        return view ("estudante/create")->with(["id_usuario"=>$id_usuario]);
     }
 
     public function store(Request $request){
@@ -24,7 +25,7 @@ class EstudanteController extends Controller
         $estudante->nome=$nome;
         $estudante->id_turma_curso=$id_turma_curso;
         $estudante->id_usuario=$id_usuario;
-
+        $estudante->id_usuario=$request->id_usuario;
         $estudante->save();
 
         return redirect('/estudante');
