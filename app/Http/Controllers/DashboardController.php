@@ -44,9 +44,13 @@ class DashboardController extends Controller
         }
 
     }
-    function getMonthlyUserCount($mes){
-        $monthly_usuario_count=Estudante::whereMonth('created_at',$mes)->get()->count();
-        return $monthly_usuario_count;
+    function getMonthlyUserIFSCCount($mes){
+        $monthly_usuario_ifsc_count=Estudante::whereMonth('created_at',$mes)->where('id_instituicao',1)->get()->count();
+        return $monthly_usuario_ifsc_count;
+    }
+    function getMonthlyUserIFCount($mes){
+        $monthly_usuario_if_count=Estudante::whereMonth('created_at',$mes)->where('id_instituicao',2)->get()->count();
+        return $monthly_usuario_if_count;
     }
     function getMonthlyEmpresaCount($mes){
         $monthly_empresa_count=Empresa::whereMonth('created_at',$mes)->get()->count();
@@ -56,13 +60,16 @@ class DashboardController extends Controller
 
     function getMonthlyAllData(){
         //PEGANDO DADOS DOS USUARIOS
-        $monthly_usuario_count_array=array();
+        $monthly_usuario_ifsc_count_array=array();
+        $monthly_usuario_if_count_array=array();
         $usuario_meses_array = $this->getAllUserMonths();
         $meses_nome_array =array();
         if(!empty($usuario_meses_array)){
             foreach($usuario_meses_array as $mes_numero=>$mes_nome){
-                $monthly_usuario_count=$this->getMonthlyUserCount($mes_numero);
-                array_push($monthly_usuario_count_array,$monthly_usuario_count);
+                $monthly_usuario_ifsc_count=$this->getMonthlyUserIFSCCount($mes_numero);
+                $monthly_usuario_if_count=$this->getMonthlyUserIFCount($mes_numero);
+                array_push($monthly_usuario_ifsc_count_array,$monthly_usuario_ifsc_count);
+                array_push($monthly_usuario_if_count_array,$monthly_usuario_if_count);
                 array_push($meses_nome_array,$mes_nome);
             }
         }
@@ -82,7 +89,8 @@ class DashboardController extends Controller
             'meses_empresas' => $meses_nome_empresa_array,
             'empresas' =>  $monthly_empresa_count_array,
             'meses_usuarios' => $meses_nome_array,
-            'usuarios' =>  $monthly_usuario_count_array,
+            'usuarios_ifsc' =>  $monthly_usuario_ifsc_count_array,
+            'usuarios_if' =>  $monthly_usuario_if_count_array,
         );
         //return $monthly_usuario_data_array;
 

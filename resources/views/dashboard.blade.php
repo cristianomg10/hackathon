@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+    <script src="/js/canvas-toBlob.js"></script>
+    <script src="/js/FileSaver.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
     <script
         src="https://code.jquery.com/jquery-3.4.1.js"
@@ -13,30 +15,55 @@
     </script>
     <div class="row d-flex justify-content-center">
         <div class="col-10 bg-white rounded mb-5" >
-            <canvas class="line-chart"></canvas>
+            <canvas class="line-chart" id="chart_estudante"></canvas>
+            <button class="btn btn-light col-12 mb-2" id="save_chart1">Download Chart</button>
         </div>
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-10 bg-white rounded mb-5" >
-            <canvas class="line-chart2"></canvas>
+            <canvas class="line-chart2" id="chart_empresa"></canvas>
+            <button class="btn btn-light col-12 mb-2" id="save_chart2">Download Chart</button>
         </div>
     </div>
 
     <script>
 
-        var Label = ["{{$dados['meses_usuarios'][0]}}"];
-        var Estudantes=[{{$dados['usuarios'][0]}}];
+        var Label=[];
+        @foreach($dados['meses_usuarios'] as $numero =>$valor)
+            var add = Label.push("{{($valor)}}");
+        @endforeach
+
+        var EstudantesIFSC=[];
+            @foreach($dados['usuarios_ifsc'] as $numero =>$valor)
+                var add = EstudantesIFSC.push({{$valor}});
+        @endforeach
+
+        var EstudantesIF=[];
+            @foreach($dados['usuarios_if'] as $numero =>$valor)
+        var add = EstudantesIF.push({{$valor}});
+        @endforeach
+
+
+
         var ctx = document.getElementsByClassName("line-chart");
         var chartGraph = new Chart(ctx,{
             type:'bar',
             data: {
                 labels:Label,
                 datasets:[{
-                    label:"ESTUDANTES",
+                    label:"ESTUDANTES IFSC",
                     borderWidth:6,
                     borderColor: 'rgba(136,255,135,0.5)',
                     backgroundColor:  'rgba(136,255,135,0.5)',
-                    data:Estudantes,
+                    data:EstudantesIFSC,
+                },
+
+                {
+                    label:"ESTUDANTES IFC",
+                    borderWidth:6,
+                    borderColor: 'rgba(255,136,135,0.5)',
+                    backgroundColor:  'rgba(255,136,135,0.5)',
+                    data:EstudantesIF,
                 }
                 ]
 
@@ -49,17 +76,40 @@
                 },
                 labels:{
                     fontStyle:"bold",
+                },
+                scales:{
+                    yAxes:[{
+                        ticks:{
+                        min:0,
+                        beginAtZero:true,
+                        },
+                }],
+
                 }
             }
         });
-
+        $("#save_chart1").click(function () {
+            $("#chart_estudante").get(0).toBlob(function(blob) {
+                saveAs(blob, "chart_estudante.png")
+            });
+        });
 
     </script>
 
     <script>
 
-        var Label = ["{{$dados['meses_empresas'][0]}}"];
-        var Result=[{{$dados['empresas'][0]}}];
+
+        var Label=[];
+            @foreach($dados['meses_empresas'] as $numero =>$valor)
+        var add = Label.push("{{($valor)}}");
+            @endforeach
+
+        var Empresas=[];
+            @foreach($dados['empresas'] as $numero =>$valor)
+        var add = Empresas.push({{$valor}});
+            @endforeach
+
+
         var ctx = document.getElementsByClassName("line-chart2");
         var chartGraph = new Chart(ctx,{
             type:'bar',
@@ -70,7 +120,7 @@
                     borderWidth:6,
                     borderColor: 'rgba(20,140,160,0.5)',
                     backgroundColor: 'rgba(20,140,160,0.5)',
-                    data:Result,
+                    data:Empresas,
                 }
                 ]
 
@@ -86,7 +136,11 @@
                 }
             }
         });
-
+        $("#save_chart2").click(function () {
+            $("#chart_empresa").get(0).toBlob(function(blob) {
+                saveAs(blob, "chart_empresa.png")
+            });
+        });
 
     </script>
 @endsection
