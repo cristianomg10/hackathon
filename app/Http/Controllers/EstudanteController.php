@@ -19,12 +19,12 @@ class EstudanteController extends Controller
 
     public function store(Request $request){
         $nome = $request->nome;
-        $id_usuario= $request->id_usuario;
+
         $id_turma_curso=$request->id_turma_curso;
         $estudante = new Estudante();
         $estudante->nome=$nome;
         $estudante->id_turma_curso=$id_turma_curso;
-        $estudante->id_usuario=$id_usuario;
+        $estudante->id_instituicao=$request->id_instituicao;
         $estudante->id_usuario=$request->id_usuario;
         $estudante->save();
 
