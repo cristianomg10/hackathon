@@ -2,23 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Faker\Provider\File;
 use Illuminate\Http\Request;
-use App\VagaEmprego;
-use App\ResponsavelRecrutamentoRH;
-use Illuminate\Support\Facades\Input;
 
-class VagaEmpregoController extends Controller
+
+class timeLineController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $Vagas=VagaEmprego::all();
-        return view("vaga.index")->with(['Vagas'=>$Vagas]);
+        return view('timeLine.index');
     }
 
     /**
@@ -28,8 +19,7 @@ class VagaEmpregoController extends Controller
      */
     public function create()
     {
-        $Recrutadores=ResponsavelRecrutamentoRH::all();
-        return view ("vaga.create")->with(['Recrutadores'=>$Recrutadores]);
+        //
     }
 
     /**
@@ -40,9 +30,7 @@ class VagaEmpregoController extends Controller
      */
     public function store(Request $request)
     {
-
-        VagaEmprego::create($request->all());
-        return redirect()->Route("vagas.index");
+        return view('timeLine.index');
     }
 
     /**
@@ -51,12 +39,11 @@ class VagaEmpregoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function sair(Request $request)
     {
-        $Vagas = VagaEmprego::find($id);
-        return view("vaga.show")->with(["Vagas"=>$Vagas]);
+        $request->session()->remove("Usuario");
+        return redirect("/");
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -65,9 +52,7 @@ class VagaEmpregoController extends Controller
      */
     public function edit($id)
     {
-        $Vagas = VagaEmprego::find($id);
-        $Recrutadores = ResponsavelRecrutamentoRH::all();
-        return view("vaga.edit")->with(["Vagas"=>$Vagas],["Recrutadores"=>$Recrutadores]);
+        //
     }
 
     /**
@@ -79,8 +64,7 @@ class VagaEmpregoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Vagas = VagaEmprego::find($id)->update($request->all());
-        return redirect()->Route("vagas.index");
+        //
     }
 
     /**
@@ -89,10 +73,8 @@ class VagaEmpregoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        VagaEmprego::destroy($request->id);
-
-        return redirect("/vagas");
+        //
     }
 }

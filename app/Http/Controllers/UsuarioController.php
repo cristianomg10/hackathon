@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario;
 use App\PerguntaSecreta;
+use App\User;
+use phpDocumentor\Reflection\DocBlock\Tags\Method;
+
 class UsuarioController extends Controller
 {
 
@@ -46,7 +49,11 @@ class UsuarioController extends Controller
 
     public function update(Request $request, $id)
     {
-        $Usuario = Usuario::find($id)->update($request->all());
+        $Usuario = Usuario::find($id);
+        $Usuario->update($request->all());
+        if($Usuario->perfil==1){
+            return view("usuario/confirm");
+        }
         return redirect()->Route("usuario.index");
 
     }

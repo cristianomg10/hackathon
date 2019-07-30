@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,7 +14,6 @@
 
             overflow: hidden;
             background-image: url("images/background.png");
-            overflow: hidden;
         }
     </style>
 </head>
@@ -23,31 +21,24 @@
 
 <header class="shadow-sm d-flex bg-light justify-content-center">
     <img src="images/logo.png" alt="logo" width="130px" class="pt-1">
-
-    </header>
+</header>
 
 
 <div class="row d-flex justify-content-center">
     <div class="col-4 mt-5" >
-        <form method="post" action="/login">
+        <form method="post" action="/timeline/index">
             <input type="hidden" name="_token" value="F5Ce46nfJf3sk4DAuH1QRuL1cCdRM4GUCI4bH2gf">
             @csrf
             <div class="form-group bg-light p-3 shadow-sm " style="border-radius: 30px">
                 <div class="text-center">
                     <h2 class="font-weight-normal">Já tem conta?</h2>
                 </div>
-                <input type="text" required class="form-control" name="email" style="border-radius: 30px" placeholder="E-mail" id="email" >
-                <input type="password" required class="form-control mt-2"  name="password" style="border-radius: 30px" placeholder="Senha" id="senha">
-                                                <input type="submit" class="btn btn-success mt-2 col-12" style="border-radius: 30px" value="Entrar">
+                <input type="email" required class="form-control" name="email" style="border-radius: 30px" placeholder="E-mail" >
+                <input type="password" required class="form-control mt-2"  name="password" style="border-radius: 30px" placeholder="Senha">
+                <input type="submit" class="btn btn-success mt-2 col-12" style="border-radius: 30px" value="Entrar">
                 <div class="text-sm-center">
                     <a href="#">Esqueci minha senha</a>
                 </div>
-                @if(!empty($mensagem))
-                <div class="alert alert-danger">
-                    {{$mensagem}}
-                </div>
-                    @endif
-
 
             </div>
         </form>

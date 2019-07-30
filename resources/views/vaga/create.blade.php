@@ -17,7 +17,7 @@
             <textarea class="form-control" id="email" placeholder="Insira o texto" name="texto" required></textarea>
 
             <label  for="texto">Imagem:</label>
-            <input type="file" class="form-control" id="texto" placeholder="insira uma imagem" name="imagem" value="teste" required>
+            <input type="file" class="form-control" id="texto" placeholder="insira uma imagem" name="imagem" required>
 
             <label  for="texto">Validade:</label>
             <input type="date" class="form-control" id="texto" placeholder="insira uma validade" name="validade" required>

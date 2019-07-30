@@ -1,5 +1,5 @@
 <?php
-
+use App\Usuario;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,12 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/','InicioController@index');
+Route::post('/login','InicioController@entrar');
 Route::get('/dashboard', 'DashboardController@getMonthlyAllData');
 Route::post('/empresas/create/{id_usuario}', "EmpresaController@create");
-
 
 
 Route::resource('/usuario', 'UsuarioController' , ['except' => 'destroy']);
@@ -58,6 +57,8 @@ Route::delete('/alvos/remover/{id}', "CursoAlvoVagaController@destroy");
 Route::resource('/opcaoRespostas', 'OpcaoRespostaQuestionarioController' , ['except' => 'destroy']);
 Route::delete('/opcaoRespostas/remover/{id}', "OpcaoRespostaQuestionarioController@destroy");
 
+Route::get('/timeline','timeLineController@sair');
+
 Route::get('/cidade', 'CidadeController@index')->name("indexCidade");
 Route::get('/cidade/create','CidadeController@create')->name("createCidade");
 Route::post('/cidade/create','CidadeController@store')->name("storeCidade");
@@ -97,3 +98,5 @@ Route::post('/responsavel_recrutamento_rh/edit/{id}','ResponsavelRecrutamentoRHC
 Route::post('/responsavel_recrutamento_rh/show/{id}','ResponsavelRecrutamentoRHController@show')->name("showResponsavelRecrutamentoRH");
 Route::put('/responsavel_recrutamento_rh/update/{id}','ResponsavelRecrutamentoRHController@update')->name("updateResponsavelRecrutamentoRH");
 Route::delete('/responsavel_recrutamento_rh/destroy/{id}','ResponsavelRecrutamentoRHController@destroy')->name("destroyResponsavelRecrutamentoRH");
+
+
