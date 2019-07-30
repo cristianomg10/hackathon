@@ -51,8 +51,11 @@ class UsuarioController extends Controller
     {
         $Usuario = Usuario::find($id);
         $Usuario->update($request->all());
+        $request->session()->put("Usuario",$Usuario);
+        $usuario = $request->session()->get("Usuario");
+
         if($Usuario->perfil==1){
-            return view("usuario/confirm");
+            return view("timeLine.index",compact("usuario"));
         }
         return redirect()->Route("usuario.index");
 

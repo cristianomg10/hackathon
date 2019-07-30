@@ -13,7 +13,7 @@ use App\Usuario;
 
 
 Route::get('/','InicioController@index');
-Route::post('/login','InicioController@entrar');
+Route::post('/login','InicioController@entrar')->name('login');
 Route::get('/dashboard', 'DashboardController@getMonthlyAllData');
 Route::post('/empresas/create/{id_usuario}', "EmpresaController@create");
 

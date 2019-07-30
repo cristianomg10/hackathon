@@ -20,19 +20,25 @@ class InicioController extends Controller
         $Usuarios=Usuario::all();
 
         $teste = $request->only(['email', 'password']);
-        foreach ($Usuarios as $usuario){
-            if($usuario->login==$request->email){
-                if ($usuario->senha==$request->password){
-                    $request->session()->put("Usuario",$usuario);
-                    $Usuario = $request->session()->get("Usuario");
-                    return view("timeLine.index",compact("Usuario"));
-                }
-            }
-        }
-        $request->session()->flash("mensagem","Usuario ou senha incorretos");
-        return redirect()->back();
+       $Usuario= Usuario::where('email','=',$request->email)->get();
+       if(!$Usuario->isEmpty()){
+           $Usuario=$Usuario[0];
 
-        }
+           if ($Usuario->senha==$request->password){
+               $request->session()->put("Usuario",$Usuario);
+               $usuario = $request->session()->get("Usuario");
+               return view("timeLine.index",compact("usuario"));
+           }
+           $request->session()->flash("mensagem","Usuario ou senha incorretos");
+           return redirect()->back();
+       }
+        $request->session()->flash("mensagem","Usuario não cadastrado");
+        return redirect()->back();
+    }
+
+
+
+
 
 
 }
