@@ -30,12 +30,8 @@ class UsuarioController extends Controller
     {
 
         Usuario::create($request->all());
-        $User= new User();
-
-        $User->email = $request->login;
-        $User->password=$request->senha;
-        $User->save();
-        return redirect("/usuario");
+        $id_usuario = Usuario::select('id')->where('email', $request->email)->first();
+        return view("../cadastro")->with(["id_usuario"=>$id_usuario]);
     }
 
 

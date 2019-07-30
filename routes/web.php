@@ -11,8 +11,12 @@ use App\Usuario;
 |
 */
 
+
 Route::get('/','InicioController@index');
 Route::post('/login','InicioController@entrar');
+Route::get('/dashboard', 'DashboardController@getMonthlyAllData');
+Route::post('/empresas/create/{id_usuario}', "EmpresaController@create");
+
 
 Route::resource('/usuario', 'UsuarioController' , ['except' => 'destroy']);
 Route::delete('/usuario/remover/{id}', "UsuarioController@destroy");
@@ -26,7 +30,7 @@ Route::delete('/turmas/remover/{id}', "TurmaController@destroy");
 Route::resource('/perguntas', 'PerguntaSecretaController' , ['except' => 'destroy']);
 Route::delete('/perguntas/remover/{id}', "PerguntaSecretaController@destroy");
 
-Route::resource('/empresas', 'EmpresaController' , ['except' => 'destroy']);
+Route::resource('/empresas', 'EmpresaController' , ['except' => 'destroy','create']);
 Route::delete('/empresas/remover/{id}', "EmpresaController@destroy");
 
 Route::resource('/vagas', 'VagaEmpregoController' , ['except' => 'destroy']);
@@ -72,7 +76,7 @@ Route::put('/instituicao/update/{id}','InstituicaoController@update')->name("upd
 Route::delete('/instituicao/destroy/{id}','InstituicaoController@destroy')->name("destroyInstituicao");
 
 Route::get('/estudante', 'EstudanteController@index')->name("indexEstudante");
-Route::get('/estudante/create','EstudanteController@create')->name("createEstudante");;
+Route::post('/estudante/create/{id_usuario}','EstudanteController@create')->name("createEstudante");;
 Route::post('/estudante/create','EstudanteController@store')->name("storeEstudante");;
 Route::post('/estudante/edit/{id}','EstudanteController@edit')->name("editEstudante");;
 Route::post('/estudante/show/{id}','EstudanteController@show')->name("showEstudante");;

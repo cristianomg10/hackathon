@@ -15,6 +15,7 @@
 
             overflow: hidden;
             background-image: url("images/background.png");
+            overflow: hidden;
         }
     </style>
 </head>
@@ -22,6 +23,7 @@
 
 <header class="shadow-sm d-flex bg-light justify-content-center">
     <img src="images/logo.png" alt="logo" width="130px" class="pt-1">
+
     </header>
 
 

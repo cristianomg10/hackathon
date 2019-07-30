@@ -11,8 +11,8 @@
         <div class="form-group bg-light p-2 rounded">
             <label for="nome">Nome:</label>
             <input type="text" required class="form-control" name="nome" placeholder="{{$estudante->nome}}">
-            <label for="id_usuario">ID Usuário:</label>
-            <input type="number" required class="form-control" name="id_usuario" placeholder="{{$estudante->id_usuario}}">
+            <label for="id_instituicao">ID Instituição:</label>
+            <input type="number" required class="form-control" name="id_instituicao" placeholder="{{$estudante->id_instituicao}}">
             <label for="id_turma_curso">ID Curso Turma:</label>
             <input type="number" required class="form-control" name="id_curso_turma" placeholder="{{$estudante->id_turma_curso}}">
 
