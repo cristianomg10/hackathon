@@ -17,7 +17,7 @@ class CreateEmpresasTable extends Migration
             $table->bigIncrements('id');
             $table->string("razao_social");
             $table->integer("cnpj");
-            $table->integer('id_usuario');
+            $table->bigInteger('id_usuario');
             $table->string("area_de_atuacao");
             $table->string("porte");
             $table->softDeletes();

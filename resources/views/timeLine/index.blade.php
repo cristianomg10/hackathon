@@ -37,16 +37,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav opcoes ">
                 <li class="nav-item ">
-                    <a class="nav-link " href="/usuario/{{$Usuario->id}}/edit/">{{$Usuario->login}}</a>
+                    <a class="nav-link " href="/usuario/{{$usuario->id}}/edit/">{{$usuario->login}}</a>
                 </li>
                 <li class="nav-item opcao">
-                    <a class="nav-link " href="#">Inicio</a>
+                    <a class="nav-link " href="/login">Inicio</a>
                 </li>
                 <li class="nav-item opcao">
                     <a class="nav-link " href="#">Vagas de emprego</a>
-                </li>
-                <li class="nav-item opcao">
-                    <a class="nav-link " href="#">Dashborad</a>
                 </li>
                 <li class="nav-item opcao">
                     <a class="nav-link " href="/timeline">sair</a>

@@ -7,7 +7,7 @@
 @section('content')
 
 
-    <form class="form-horizontal" action="{{Route('vagas.update',["vaga"=>$Vagas->id])}}" method="post">
+    <form class="form-horizontal" action="{{Route('vagas.update',["vaga"=>$Vagas->id])}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group bg-light p-2 rounded">

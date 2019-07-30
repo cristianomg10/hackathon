@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Faker\Provider\File;
 use Illuminate\Http\Request;
 use App\VagaEmprego;
 use App\ResponsavelRecrutamentoRH;
 use Illuminate\Support\Facades\Input;
-
+use File;
 class VagaEmpregoController extends Controller
 {
     /**
@@ -40,8 +39,12 @@ class VagaEmpregoController extends Controller
      */
     public function store(Request $request)
     {
-
-        VagaEmprego::create($request->all());
+        $vaga = VagaEmprego::create($request->all());
+        $imagem = Input::file('imagem');
+        $extensao=$imagem->getClientOriginalExtension();
+        $imagem=File::move($imagem,storage_path().'/imagem-vaga/vaga-id'.$vaga->id.'.'.$extensao);
+        $vaga->imagem='/imagem-vaga/vaga-id_'.$vaga->id.'.'.$extensao;
+        $vaga->save();
         return redirect()->Route("vagas.index");
     }
 

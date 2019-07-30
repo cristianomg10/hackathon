@@ -15,11 +15,11 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuario', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('login',255);
-            $table->string('senha',255);
-            $table->string('email',255)->unique();
-            $table->integer('id_pergunta_secreta');
-            $table->string('resposta_pergunta_secreta',500);
+            $table->string('login');
+            $table->string('senha');
+            $table->string('email')->unique();
+            $table->bigInteger('id_pergunta_secreta');
+            $table->string('resposta_pergunta_secreta');
             $table->integer('perfil');
             $table->timestamps();
             $table->softDeletes();

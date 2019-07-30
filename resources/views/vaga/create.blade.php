@@ -7,7 +7,7 @@
 @section('content')
 
 
-    <form class="form-horizontal" action="{{Route('vagas.store')}}" method="post">
+    <form class="form-horizontal" action="{{Route('vagas.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group bg-light p-2 rounded">
             <label for="login">Titulo:</label>
