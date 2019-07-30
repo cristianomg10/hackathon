@@ -7,17 +7,23 @@
 @section('content')
     <ul class="list-group">
     @foreach($Empresas as $Empresa)
-        <li class="list-group-item align-items-center">ID# {{$Empresa->id}} | Razão Social: {{$Empresa->razao_social}} | CNPJ: {{$Empresa->cnpj}} | Área de atuação: {{$Empresa->area_de_atuacao}} | Porte: {{$Empresa->porte}} |
-            <form method="get" action="/empresas/{{$Empresa->id}}/edit/">
+        <li class="list-group-item align-items-center d-flex justify-content-between">ID# {{$Empresa->id}} | Razão Social: {{$Empresa->razao_social}}
+            <span class="d-flex">
+                <form method="get" action="/empresas/{{$Empresa->id}}">
                     @csrf
-                    <button class="btn btn-secondary mt-2 ">Editar</button>
+                    <button class="btn btn-secondary mr-1"> <i class="fas fa-eye"></i></button>
+                </form>
+                <form method="get" action="/empresas/{{$Empresa->id}}/edit/">
+                    @csrf
+                    <button class="btn btn-info mr-1"> <i class="far fa-edit"></i> </button>
                 </form>
                 <form id="excluir" method="post" action="/empresas/remover/{{$Empresa->id}}"
                       onsubmit="return confirm('tem certeza que deseja excluir {{$Empresa->razao_social}}')">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger  mt-2  ">Excluir</button>
+                    <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                 </form>
+            </span>
 
 
         </li>

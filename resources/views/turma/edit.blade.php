@@ -13,10 +13,10 @@
         @method('PUT')
         <div class="form-group bg-light p-2 rounded">
             <label for="login">Nome:</label>
-            <input type="text" class="form-control" id="login" placeholder="{{$Turma->nome}}" name="nome">
+            <input type="text" class="form-control" id="login" placeholder="{{$Turma->nome}}" name="nome" required>
 
             <label  for="email">Curso:</label>
-            <input type="text" class="form-control" id="email" placeholder="{{$Turma->id_curso}}" name="id_curso">
+            <input type="text" class="form-control" id="email" placeholder="{{$Turma->id_curso}}" name="id_curso" required>
 
             <input type="submit" class="btn btn-primary mt-2">
         </div>

@@ -7,7 +7,7 @@
 
 @section('content')
 
-    <form class="form-horizontal"action="{{Route('cursos.update',['cruso'=>$Curso->id])}}"method="post">
+    <form class="form-horizontal"action="{{Route('cursos.update',['Curso'=>$Curso->id])}}"method="post">
         @csrf
         @method('PUT')
         <div class="form-group bg-light p-2 rounded">
@@ -35,11 +35,10 @@
 
 
             <label for="semestre_inicial_oferta">Semestre:</label>
-            <input type="text" class="form-control" id="semestre_inicial_oferta" placeholder="{{$Curso->semestre_inicial_oferta}} name="semestre_inicial_oferta" required>
+            <input type="text" class="form-control" id="semestre_inicial_oferta" placeholder="{{$Curso->semestre_inicial_oferta}}" name="semestre_inicial_oferta" required>
 
             <input type="submit" class="btn btn-primary mt-2">
-
+        </div>
     </form>
-    </div>
 @endsection
 

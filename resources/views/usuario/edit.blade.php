@@ -34,10 +34,11 @@
         <label  for="resposta">Resposta:</label>
 
         <input type="text" class="form-control" id="resposta"  placeholder="{{$Usuario->id_pergunta_secreta}}" name="resposta_pergunta_secreta" required>
-
+    @if($Usuario->perfil!=1)
         <div class="form-group">
             <label for="Perfil">Perfil:</label>
             <div class="col-sm-10">
+
                 <input type="radio" name="perfil" value="1" name="perf">
                 <label for="perfil" class="control-label"> Usuario</label>
                 <input type="radio" name="perfil" value="2" name="perf">
@@ -46,7 +47,9 @@
                 <label for="perfil" class="control-label"> Administrador</label>
             </div>
         </div>
-
+        @else
+            <input type="hidden" name="perfil" value="1" name="perf">
+@endif
 
 
 
