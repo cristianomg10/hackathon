@@ -14,7 +14,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $Usuarios=Usuario::all();
-        return view("/usuario/index")->with(['Usuarios'=>$Usuarios]);
+        return view("usuario.index")->with(['Usuarios'=>$Usuarios]);
 
 
     }
@@ -28,10 +28,9 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
-
         Usuario::create($request->all());
-        $id_usuario = Usuario::select('id')->where('email', $request->email)->first();
-        return view("../cadastro")->with(["id_usuario"=>$id_usuario]);
+
+        return redirect("/");
     }
 
 
@@ -55,7 +54,7 @@ class UsuarioController extends Controller
         $usuario = $request->session()->get("Usuario");
 
         if($Usuario->perfil==1){
-            return view("timeLine.index",compact("usuario"));
+            return view("timeLine/index",compact("usuario"));
         }
         return redirect()->Route("usuario.index");
 

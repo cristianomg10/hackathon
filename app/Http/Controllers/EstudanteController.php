@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\estudante;
+use App\Estudante;
 use Illuminate\Http\Request;
 
 class EstudanteController extends Controller
@@ -27,7 +27,6 @@ class EstudanteController extends Controller
         $estudante->id_instituicao=$request->id_instituicao;
         $estudante->id_usuario=$request->id_usuario;
         $estudante->save();
-
         return redirect('/estudante');
 
 
