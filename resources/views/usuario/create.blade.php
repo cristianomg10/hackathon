@@ -35,7 +35,7 @@
             <label  for="resposta">Resposta:</label>
 
                 <input type="text" class="form-control" id="resposta" placeholder="insira a resposta" name="resposta_pergunta_secreta" required>
-
+            @if($Usuario->perfil!=1)
         <div class="form-group">
             <label for="Perfil">Perfil:</label>
             <div class="col-sm-10">
@@ -47,9 +47,9 @@
                 <label for="perfil" class="control-label"> Administrador</label>
             </div>
         </div>
+    @endif
 
-
-
+                <input type="hidden" name="perfil" value="1" name="perf">
 
             <input type="submit" class="btn btn-primary mt-2">
 
