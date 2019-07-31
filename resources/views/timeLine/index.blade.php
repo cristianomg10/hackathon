@@ -40,7 +40,7 @@
                     <a class="nav-link " href="/usuario/{{$usuario->id}}/edit/">{{$usuario->login}}</a>
                 </li>
                 <li class="nav-item opcao">
-                    <a class="nav-link " href="/login">Inicio</a>
+                    <a class="nav-link " href="{{route('inicio')}}">Inicio</a>
                 </li>
                 <li class="nav-item opcao">
                     <a class="nav-link " href="#">Vagas de emprego</a>
