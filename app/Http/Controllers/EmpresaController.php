@@ -22,10 +22,15 @@ class EmpresaController extends Controller
 
     public function store(Request $request)
     {
+
         $Empresa = Empresa::create($request->all());
         $Empresa->id_usuario=$request->id_usuario;
         $Empresa->save();
-        return redirect()->Route("empresas.index");
+        $request->session()->flash(
+            'mensagemCadastro',
+            "Usuario cadastrado com sucesso, faça seu login"
+        );
+        return redirect()->Route("createAbrangenciaEmpresa");
     }
 
 

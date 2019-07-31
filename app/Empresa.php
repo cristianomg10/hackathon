@@ -10,4 +10,7 @@ class Empresa extends Model
     protected $table ="empresas";
     protected $fillable = ['razao_social','cnpj','area_de_atuacao','porte'];
     protected $hidden = ['id_usuario'];
+    public function usuario(){
+        return $this->belongsTo("App\Usuario",'id_usuario','id');
+    }
 }

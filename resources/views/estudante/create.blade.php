@@ -17,7 +17,7 @@
             <input type="number" required class="form-control" name="id_instituicao">
             <label for="id_turma_curso">ID Turma Curso:</label>
             <input type="number" required class="form-control" name="id_turma_curso" >
-            <input type="hidden" name="id_usuario" value="{{$id_usuario}}">
+            <input type="hidden" name="id_usuario" value="{{$usuario->id}}">
             <input type="submit" class="btn btn-primary mt-2" >
         </div>
 

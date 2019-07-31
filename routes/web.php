@@ -22,10 +22,17 @@ Route::get('/dashboard', 'DashboardController@getMonthlyAllData')->middleware(Ch
 
 Route::get('/inicio','InicioController@inicio')->name('inicio');
 
-
 Route::post('/empresas/create/{id_usuario}', "EmpresaController@create");
-
-
+Route::get('/cadastro',function (){
+    return view('cadastro');
+})->name('cadastro');
+Route::get('retornoInicio',function (){
+   session()->flash(
+        'mensagemCadastro',
+        "Usuario cadastrado com sucesso, faça seu login"
+    );
+    return redirect('/');
+})->name('retorno');
 Route::resource('/usuario', 'UsuarioController' , ['except' => 'destroy']);
 Route::delete('/usuario/remover/{id}', "UsuarioController@destroy");
 
