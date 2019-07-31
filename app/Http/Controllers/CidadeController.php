@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\cidade;
+use App\Cidade;
 use Illuminate\Http\Request;
 
 class CidadeController extends Controller
 {
     public function index(){
-        $cidades = cidade::query()->orderBy('nome')->get();
+        $cidades = Cidade::query()->orderBy('nome')->get();
         return view('cidade/index',compact('cidades'));
     }
 

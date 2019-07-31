@@ -11,7 +11,8 @@ class InicioController extends Controller
     public function index(Request $request)
     {
         $mensagem = $request->session()->get("mensagem");
-        return view("welcome",compact(["mensagem"]));
+        $Cadastro= $request->session()->get('mensagemCadastro');
+        return view("welcome",compact(["mensagem"],["Cadastro"]));
     }
     public function inicio()
     {

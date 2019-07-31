@@ -9,9 +9,14 @@
         @csrf
         <div class="form-group bg-light p-2 rounded">
             <label for="id_empresa">ID Empresa:</label>
-            <input type="number" required class="form-control" name="id_empresa" >
+            <input type="hidden" required class="form-control" name="id_empresa" value="{{$abrangencia->empresa->id}}">
             <label for="id_empresa">ID Cidade:</label>
-            <input type="number" required class="form-control" name="id_cidade" >
+            <select name="id_cidade" class="custom-select">
+                @foreach($cidades as $cidade)
+                    <option value="{{$cidade->id}}" >{{$cidade->nome}} / {{$cidade->estado}}</option>
+                @endforeach
+            </select>
+
             <input type="submit" class="btn btn-primary mt-2" >
 
         </div>

@@ -49,6 +49,11 @@
                     {{$mensagem}}
                 </div>
                     @endif
+                @if(!empty($Cadastro))
+                    <div class="alert alert-success">
+                        {{$Cadastro}}
+                    </div>
+                @endif
 
 
             </div>
@@ -57,7 +62,7 @@
             <div class="text-center ">
                 <h2 class="font-weight-normal">Ainda não tem conta?</h2>
             </div>
-            <a href="usuario/create"><button class="btn btn-success mt-2 col-12" style="border-radius: 30px">Cadastre-se</button></a>
+            <a href="{{route('cadastro')}}"><button class="btn btn-success mt-2 col-12" style="border-radius: 30px">Cadastre-se</button></a>
         </div>
     </div>
 </div>

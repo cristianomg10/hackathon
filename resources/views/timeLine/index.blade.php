@@ -45,6 +45,11 @@
                 <li class="nav-item opcao">
                     <a class="nav-link " href="#">Vagas de emprego</a>
                 </li>
+                @if($usuario->perfil==3)
+                    <li class="nav-item opcao">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                @endif
                 <li class="nav-item opcao">
                     <a class="nav-link " href="/timeline">sair</a>
                 </li>

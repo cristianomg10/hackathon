@@ -21,17 +21,23 @@ class UsuarioController extends Controller
 
     public function create(Request $request)
     {
+        $tipo=$request->tipo;
         $usuario=$request->session()->get('Usuario');
         $Perguntas=PerguntaSecreta::all();
-        return view ("/usuario/create")->with(['Perguntas'=>$Perguntas,'Usuario'=>$usuario]);
-    }
+        return view ("/usuario/create")->with(['Perguntas'=>$Perguntas,'Usuario'=>$usuario,'tipo'=>$tipo]);
+}
 
 
     public function store(Request $request)
     {
-        Usuario::create($request->all());
+       $usuario= Usuario::create($request->all());
+        $Usuario=$request->session()->put('Usuario',$usuario);
+        $tipo=$request->tipo;
+        if($tipo==1){
+            return view('estudante.create',compact('usuario'));
+        }
 
-        return redirect("/");
+        return view("empresa.create",compact('usuario'));
     }
 
 
