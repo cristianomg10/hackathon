@@ -16,6 +16,8 @@
             overflow: hidden;
             background-image: url("images/background.png");
             overflow: hidden;
+            background-repeat: no-repeat ;
+            background-size: cover;
         }
     </style>
 </head>
