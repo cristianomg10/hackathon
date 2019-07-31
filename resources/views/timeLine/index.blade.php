@@ -14,7 +14,9 @@
         html{
 
             overflow: hidden;
-            background-image: url("../images/background.png");
+            background-image: url("images/background.png");
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .opcoes{
             margin-left: 5%;
@@ -40,15 +42,20 @@
                     <a class="nav-link " href="/usuario/{{$usuario->id}}/edit/">{{$usuario->login}}</a>
                 </li>
                 <li class="nav-item opcao">
-                    <a class="nav-link " href="/login">Inicio</a>
+                    <a class="nav-link " href="{{route('inicio')}}">Inicio</a>
                 </li>
                 <li class="nav-item opcao">
                     <a class="nav-link " href="#">Vagas de emprego</a>
                 </li>
-                <li class="nav-item opcao">
-                    <a class="nav-link " href="/timeline">sair</a>
-                </li>
 
+                @if( $usuario->perfil == 3)
+                    <li class="nav-item opcao">
+                        <a class="nav-link " href="/dashboard">Dashboard</a>
+                    </li>
+                @endif
+                <li class="nav-item opcao">
+                    <a class="nav-link " href="/timeline">Sair</a>
+                </li>
             </ul>
 
 
