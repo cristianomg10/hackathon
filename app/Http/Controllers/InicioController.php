@@ -13,6 +13,12 @@ class InicioController extends Controller
         $mensagem = $request->session()->get("mensagem");
         return view("welcome",compact(["mensagem"]));
     }
+    public function inicio()
+    {
+
+        $usuario = session()->get("Usuario");
+        return view("timeLine.index",compact("usuario"));
+    }
 
     public function entrar(Request $request)
     {

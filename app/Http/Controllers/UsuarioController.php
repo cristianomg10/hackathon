@@ -19,10 +19,11 @@ class UsuarioController extends Controller
 
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        $usuario=$request->session()->get('Usuario');
         $Perguntas=PerguntaSecreta::all();
-        return view ("/usuario/create")->with(['Perguntas'=>$Perguntas]);
+        return view ("/usuario/create")->with(['Perguntas'=>$Perguntas,'Usuario'=>$usuario]);
     }
 
 
