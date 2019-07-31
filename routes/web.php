@@ -1,5 +1,6 @@
 <?php
 use App\Usuario;
+use App\Http\Middleware\CheckAdm;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +13,9 @@ use App\Usuario;
 */
 
 
-Route::get('/','InicioController@index');
+Route::get('/','InicioController@index')->name('home');
 Route::post('/login','InicioController@entrar')->name('login');
-Route::get('/dashboard', 'DashboardController@getMonthlyAllData');
+Route::get('/dashboard', 'DashboardController@getMonthlyAllData')->middleware(CheckAdm::class);
 Route::post('/empresas/create/{id_usuario}', "EmpresaController@create");
 
 
