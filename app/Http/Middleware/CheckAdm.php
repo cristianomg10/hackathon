@@ -11,7 +11,7 @@ class CheckAdm
     {
         $usuario=session("Usuario");
         if($usuario->perfil < 3){
-            return redirect()->route('home');
+            return redirect()->route('/');
         }
         return $next($request);
     }
