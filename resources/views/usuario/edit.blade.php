@@ -12,28 +12,28 @@
     <div class="form-group bg-light p-2 rounded">
         <label  for="login">Login:</label>
 
-        <input type="text" class="form-control" id="login" placeholder="{{$Usuario->login}}" name="login" required>
+        <input type="text" class="form-control" id="login" value="{{$Usuario->login}}" name="login" required>
 
 
         <label for="email">E-mail:</label>
 
-        <input type="email" class="form-control" id="email" placeholder="{{$Usuario->email}}" name="email" required>
+        <input type="email" class="form-control" id="email" value="{{$Usuario->email}}" name="email" disabled>
 
 
         <label  for="senha">Senha:</label>
 
-        <input type="password" class="form-control" id="senha" placeholder="{{$Usuario->senha}}"name="senha" required>
+        <input type="password" class="form-control" id="senha" value="{{$Usuario->senha}}"name="senha" required>
 
 
         <label  for="id_pergunta_secreta">Pergunta secreta:</label>
 
-        <input type="text" class="form-control" name="id_pergunta_secreta"  placeholder="{{$Usuario->id_pergunta_secreta}}" required >
+        <input type="text" class="form-control" name="id_pergunta_secreta"  value="{{$Usuario->id_pergunta_secreta}}" required >
 
 
 
         <label  for="resposta">Resposta:</label>
 
-        <input type="text" class="form-control" id="resposta"  placeholder="{{$Usuario->id_pergunta_secreta}}" name="resposta_pergunta_secreta" required>
+        <input type="text" class="form-control" id="resposta"  value="{{$Usuario->id_pergunta_secreta}}" name="resposta_pergunta_secreta" required>
     @if($Usuario->perfil!=1)
         <div class="form-group">
             <label for="Perfil">Perfil:</label>
