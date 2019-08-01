@@ -108,6 +108,28 @@
         </div>
 
     </div>
+    <div class="container-fluid d-flex justify-content-center row m-auto mb-1">
+        <div class="bg-light col-sm-12 col-md-7 col-bg-5 mt-2 p-3 m-sm-1 mb-1" style="border-radius: 30px; min-height: 150px">
+            <h2 class="text-center">{{$postagem->titulo}}
+            </h2>
+            <p class="text-right"><small>Postado em: {{$postagem->created_at}}</small></p>
+
+            <strong>Publicação #{{$postagem->id}}: </strong>{{$postagem->postagem}}</p>
+            <form method="post" action="{{route('postagens.store')}}">
+                @csrf
+                <input type="hidden" value="{{$usuario->id}}" name="id_usuario">
+                <input type="hidden" value="{{$postagem->id}}" name="id_postagem">
+
+                @foreach($Postagem as $Postagen)
+
+                    <p>  <strong>Resposta #{{$Postagen->id}}</strong>: {{$Postagen->postagem}}</p>
+
+                    @endforeach
+                <textarea class="form-control" placeholder="Insira sua resposta" name="postagem"></textarea>
+            <input type="submit" value="Responder" class="btn btn-success mt-4">
+            </form>
+        </div>
+    </div>
 
 
 
