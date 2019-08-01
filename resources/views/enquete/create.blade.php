@@ -15,8 +15,7 @@
             <label  for="cnpj">Validade:</label>
             <input type="datetime-local" class="form-control" id="cnpj" placeholder="insira a validade da pergunta" name="validade" required>
 
-            <label for="area_de_atuacao">Responsável</label>
-            <input type="text" class="form-control" id="area_de_atuacao" placeholder="insira o responsavel" name="id_usuario" required>
+            <input type="hidden" class="form-control" id="area_de_atuacao" placeholder="insira o responsavel" name="id_usuario" required value="{{$usuario->id}}">
             <input type="submit" class="btn btn-primary mt-2">
         </div>
     </form>

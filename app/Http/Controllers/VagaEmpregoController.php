@@ -42,8 +42,8 @@ class VagaEmpregoController extends Controller
         $vaga = VagaEmprego::create($request->all());
         $imagem = Input::file('imagem');
         $extensao=$imagem->getClientOriginalExtension();
-        $imagem=File::move($imagem,storage_path().'/imagem-vaga/vaga-id'.$vaga->id.'.'.$extensao);
-        $vaga->imagem='/imagem-vaga/vaga-id_'.$vaga->id.'.'.$extensao;
+        $imagem=File::move($imagem,public_path().'/imagem-vaga/vaga-id'.$vaga->id.'.'.$extensao);
+        $vaga->imagem='imagem-vaga/vaga-id'.$vaga->id.'.'.$extensao;
         $vaga->save();
         return redirect()->Route("vagas.index");
     }

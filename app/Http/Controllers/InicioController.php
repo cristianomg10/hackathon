@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Enquete;
+use App\OpcaoRespostaEnquete;
+use App\RespostaEnquete;
 use App\Usuario;
+use App\VagaEmprego;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +38,12 @@ class InicioController extends Controller
            if ($Usuario->senha==$request->password){
                $request->session()->put("Usuario",$Usuario);
                $usuario = $request->session()->get("Usuario");
-               return view("timeLine.index",compact("usuario"));
+               $enquete= Enquete::find(7);
+               $opcoes=OpcaoRespostaEnquete::where('id_enquete','=',$enquete->id)->get();
+               $vaga=VagaEmprego::find(3);
+
+
+               return view("timeLine.index",compact("usuario","opcoes","enquete",'vaga'));
            }
            $request->session()->flash("mensagem","Usuario ou senha incorretos");
            return redirect()->back();

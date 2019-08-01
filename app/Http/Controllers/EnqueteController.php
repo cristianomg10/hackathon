@@ -27,7 +27,8 @@ class EnqueteController extends Controller
     public function create()
     {
         $Usuarios=Usuario::all();
-        return view ("enquete.create")->with(['Usuarios'=>$Usuarios]);
+        $usuario=session()->get("Usuario");
+        return view ("enquete.create")->with(['Usuarios'=>$Usuarios,'usuario'=>$usuario]);
     }
 
     /**
@@ -38,8 +39,10 @@ class EnqueteController extends Controller
      */
     public function store(Request $request)
     {
-       Enquete::create($request->all());
-        return redirect()->Route("enquetes.index");
+
+       $enq=Enquete::create($request->all());
+       $enquete=$request->session()->put('enq',$enq);
+        return redirect()->Route("opcoes.create");
     }
 
     /**

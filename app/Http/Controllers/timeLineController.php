@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enquete;
+use App\RespostaEnquete;
 use Illuminate\Http\Request;
 
 
@@ -9,7 +11,10 @@ class timeLineController extends Controller
 {
     public function index()
     {
-        return view('timeLine.index');
+       $enquete= Enquete::all()->sortByDesc('created_at')->first()->get();
+       dd($enquete);
+       $opcoes=RespostaEnquete::where('id_enquete','=',$enquete->id)->get();
+        return view('timeLine.index',compact('enquete','opcoes'));
     }
 
     /**

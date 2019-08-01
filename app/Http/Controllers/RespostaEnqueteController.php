@@ -25,7 +25,8 @@ class RespostaEnqueteController extends Controller
      */
     public function create()
     {
-        return view ("resposta.create");
+        $enquete=session()->get('enq');
+        return view ("resposta.create",compact('enquete'));
     }
 
     /**
