@@ -26,9 +26,11 @@ class PostagemForumController extends Controller
      */
     public function create()
     {
+
         $Postagem=PostagemForum::all();
         $Usuarios=Usuario::all();
-        return view ("postagem.create")->with(['Usuarios'=>$Usuarios],['Postagens'=>$Postagem]);
+        $usuario=session()->get('Usuario');
+        return view ("postagem.create")->with(['Usuarios'=>$Usuarios,'Postagens'=>$Postagem,'usuario'=>$usuario]);
     }
 
     /**

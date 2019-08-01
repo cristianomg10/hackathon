@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\OpcaoRespostaEnquete;
+use App\OpcaoRespostaQuestionario;
 use Illuminate\Http\Request;
 
 class OpcaoRespostaEnqueteController extends Controller
@@ -14,7 +15,8 @@ class OpcaoRespostaEnqueteController extends Controller
      */
     public function index()
     {
-        $Opcao=OpcaoRespostaEnquete::all();
+        $enquete=session()->get('enq');
+        $Opcao= OpcaoRespostaEnquete::where('id_enquete','=',$enquete->id)->get();
         return view("opcao.index")->with(['Opcao'=>$Opcao]);
     }
 
@@ -25,7 +27,10 @@ class OpcaoRespostaEnqueteController extends Controller
      */
     public function create()
     {
-        return view ("opcao.create");
+
+        $enquete=session()->get('enq');
+        $Opcao= OpcaoRespostaEnquete::where('id_enquete','=',$enquete->id)->get();
+        return view ("opcao.create",compact('enquete','Opcao'));
     }
 
     /**
