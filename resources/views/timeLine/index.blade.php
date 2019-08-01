@@ -47,12 +47,11 @@
                 <li class="nav-item opcao">
                     <a class="nav-link " href="{{route('inicio')}}">Inicio</a>
                 </li>
+                @if( $usuario->perfil == 3)
                 <li class="nav-item opcao">
-                    <a class="nav-link " href="#">Vagas de emprego</a>
+                    <a class="nav-link " href="/crudlist">Acessar tabelas</a>
                 </li>
 
-
-                @if( $usuario->perfil == 3)
                     <li class="nav-item opcao">
                         <a class="nav-link " href="/dashboard">Dashboard</a>
                     </li>

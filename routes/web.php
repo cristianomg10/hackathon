@@ -26,6 +26,9 @@ Route::post('/empresas/create/{id_usuario}', "EmpresaController@create");
 Route::get('/cadastro',function (){
     return view('cadastro');
 })->name('cadastro');
+Route::get('/crudlist',function (){
+    return view('crudList');
+})->name('listarCrud')->middleware(CheckAdm::class);
 Route::get('retornoInicio',function (){
    session()->flash(
         'mensagemCadastro',
