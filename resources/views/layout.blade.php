@@ -18,7 +18,7 @@
         }
     </style>
 </head>
-<body class="container-fluid bg-transparent">
+<body class="container-fluid bg-transparent" style="width: 100%">
 <header class="jumbotron mt-2 shadow-sm "  style="background-color:lightgreen;color:white">
     @yield('header')
 </header>

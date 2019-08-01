@@ -11,12 +11,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
         /* BACKGROUND */
-        html{
-
-            overflow: hidden;
+        body{
+            width: 100%;
+            height:100%;
             background-image: url("images/background.png");
-            background-size: cover;
+            background-position: center center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size:cover;
         }
         .opcoes{
             margin-left: 5%;
@@ -54,6 +56,11 @@
                         <a class="nav-link " href="/dashboard">Dashboard</a>
                     </li>
                 @endif
+                @if( $usuario->perfil == 3)
+                    <li class="nav-item opcao">
+                        <a class="nav-link " href="/dashboard">Tabelas</a>
+                    </li>
+                @endif
                 <li class="nav-item opcao">
                     <a class="nav-link " href="/timeline">Sair</a>
                 </li>
@@ -64,6 +71,12 @@
 
     </nav>
     <br>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="bg-light col-sm-10 col-md-8 col-bg-8 mt-2 p-3"  style="border-radius: 30px; min-height: 150px;">
+
+
+        </div>
+    </div>
 
 
 
