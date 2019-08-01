@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enquete;
 use App\OpcaoRespostaEnquete;
+use App\PostagemForum;
 use App\RespostaEnquete;
 use App\Usuario;
 use App\VagaEmprego;
@@ -20,9 +21,14 @@ class InicioController extends Controller
     }
     public function inicio()
     {
-
+        $postagem = PostagemForum::find(1);
         $usuario = session()->get("Usuario");
-        return view("timeLine.index",compact("usuario"));
+        $enquete= Enquete::find(7);
+        $opcoes=OpcaoRespostaEnquete::where('id_enquete','=',$enquete->id)->get();
+        $vaga=VagaEmprego::find(3);
+        $Postagem=PostagemForum::where('id_postagem','=',1)->get();
+
+        return view("timeLine.index",compact("usuario","opcoes","enquete",'vaga','postagem','Postagem'));
     }
 
     public function entrar(Request $request)
@@ -37,13 +43,8 @@ class InicioController extends Controller
 
            if ($Usuario->senha==$request->password){
                $request->session()->put("Usuario",$Usuario);
-               $usuario = $request->session()->get("Usuario");
-               $enquete= Enquete::find(7);
-               $opcoes=OpcaoRespostaEnquete::where('id_enquete','=',$enquete->id)->get();
-               $vaga=VagaEmprego::find(3);
 
-
-               return view("timeLine.index",compact("usuario","opcoes","enquete",'vaga'));
+               return redirect("inicio");
            }
            $request->session()->flash("mensagem","Usuario ou senha incorretos");
            return redirect()->back();

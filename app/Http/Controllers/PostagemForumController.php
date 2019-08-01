@@ -42,7 +42,9 @@ class PostagemForumController extends Controller
     public function store(Request $request)
     {
         PostagemForum::create($request->all());
-        return redirect()->Route("postagens.index");
+
+
+        return redirect()->Route("inicio");
     }
 
     /**
