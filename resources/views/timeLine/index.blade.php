@@ -124,7 +124,7 @@
                     <p>  <strong>Resposta #{{$Postagen->id}}</strong>: {{$Postagen->postagem}}</p>
 
                     @endforeach
-                <textarea class="form-control" placeholder="Insira sua resposta" name="postagem"></textarea>
+                <textarea class="form-control" placeholder="Insira sua resposta" name="postagem" required></textarea>
             <input type="submit" value="Responder" class="btn btn-success mt-4">
             </form>
         </div>
