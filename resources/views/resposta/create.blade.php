@@ -2,7 +2,7 @@
 @extends('../layout')
 
 @section('header')
-    <h1 class="display-4">ADICIONAR USUARIO</h1>
+    <h1 class="display-4">ADICIONAR OPÇÃO DE RESPOSTA</h1>
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
 
             <label for="email">Enquete:</label>
 
-            <input type="text" class="form-control" id="email" placeholder="insira a enquete" name="id_enquete" required>
+            <input type="hidden" class="form-control" id="email" placeholder="insira a enquete" name="id_enquete" value="{{$enquete}}" required>
 
             <label for="email">Opção da Enquete:</label>
 

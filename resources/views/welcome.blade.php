@@ -11,16 +11,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
         /* BACKGROUND */
-        html{
-
-            overflow: hidden;
+        body{
+            width: 100%;
+            height:100%;
             background-image: url("images/background.png");
-            background-size: cover;
+            background-position: center center;
             background-repeat: no-repeat;
-            overflow: hidden;
-            background-repeat: no-repeat ;
-            background-size: cover;
+            background-attachment: fixed;
+            background-size:cover;
         }
+
     </style>
 </head>
 <body class="bg-transparent">
@@ -31,8 +31,8 @@
     </header>
 
 
-<div class="row d-flex justify-content-center">
-    <div class="col-4 mt-5" >
+<div style="width: 100%;margin-left: 50%;transform: translate(-50%);" class="row d-flex justify-content-center">
+    <div class="col-sm-10 col-md-4 col-bg-4 mt-5"  >
         <form method="post" action="/login">
             <input type="hidden" name="_token" value="F5Ce46nfJf3sk4DAuH1QRuL1cCdRM4GUCI4bH2gf">
             @csrf
@@ -43,7 +43,7 @@
                 <input type="text" required class="form-control" name="email" style="border-radius: 30px" placeholder="E-mail" id="email" >
                 <input type="password" required class="form-control mt-2"  name="password" style="border-radius: 30px" placeholder="Senha" id="senha">
                                                 <input type="submit" class="btn btn-success mt-2 col-12" style="border-radius: 30px" value="Entrar">
-                <div class="text-sm-center">
+                <div class="text-center">
                     <a href="#">Esqueci minha senha</a>
                 </div>
                 @if(!empty($mensagem))
@@ -51,6 +51,11 @@
                     {{$mensagem}}
                 </div>
                     @endif
+                @if(!empty($Cadastro))
+                    <div class="alert alert-success">
+                        {{$Cadastro}}
+                    </div>
+                @endif
 
 
             </div>
@@ -59,7 +64,7 @@
             <div class="text-center ">
                 <h2 class="font-weight-normal">Ainda não tem conta?</h2>
             </div>
-            <a href="usuario/create"><button class="btn btn-success mt-2 col-12" style="border-radius: 30px">Cadastre-se</button></a>
+            <a href="{{route('cadastro')}}"><button class="btn btn-success mt-2 col-12" style="border-radius: 30px">Cadastre-se</button></a>
         </div>
     </div>
 </div>

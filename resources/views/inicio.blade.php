@@ -10,10 +10,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
         /* BACKGROUND */
-        html{
-
-            overflow: hidden;
+        body{
+            width: 100%;
+            height:100%;
             background-image: url("images/background.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
     </style>
 </head>
@@ -46,7 +49,7 @@
             <div class="text-center ">
                 <h2 class="font-weight-normal">Ainda não tem conta?</h2>
             </div>
-            <a href="usuario/create"><button class="btn btn-success mt-2 col-12" style="border-radius: 30px">Cadastre-se</button></a>
+            <a href="{{route('cadastro')}}"><button class="btn btn-success mt-2 col-12" style="border-radius: 30px">Cadastre-se</button></a>
         </div>
     </div>
 </div>

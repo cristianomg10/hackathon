@@ -27,7 +27,11 @@ class EstudanteController extends Controller
         $estudante->id_instituicao=$request->id_instituicao;
         $estudante->id_usuario=$request->id_usuario;
         $estudante->save();
-        return redirect('/estudante');
+        $request->session()->flash(
+            'mensagemCadastro',
+            "Usuario cadastrado com sucesso, faça seu login"
+        );
+        return redirect('/');
 
 
     }

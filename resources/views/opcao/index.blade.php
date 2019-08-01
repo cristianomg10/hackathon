@@ -29,7 +29,11 @@
     </ul>
     <form method="get" action="opcoes/create">
         @csrf
-        <button class="btn btn btn-success mt-2 ">Adicionar</button>
+        <button class="btn btn btn-primary mt-2 ">Adicionar</button>
+    </form>
+    <form method="get" action="{{route('inicio')}}">
+        @csrf
+        <button class="btn btn btn-success mt-2 ">Concluir</button>
     </form>
 @endsection
 

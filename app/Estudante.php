@@ -11,4 +11,7 @@ class Estudante extends Model
     protected $fillable = ['nome','id_turma_curso','id_instituicao'];
     protected $hidden = ['id_usuario'];
     use SoftDeletes;
+    public function usuario(){
+        return $this->belongsTo("App\Usuario",'id_usuario','id');
+    }
 }

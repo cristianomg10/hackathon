@@ -29,7 +29,11 @@
     </ul>
     <form method="get" action="abrangencia_empresa/create">
         @csrf
-        <button class="btn btn btn-success mt-2 ">Adicionar</button>
+        <button class="btn btn btn-primary mt-2 ">Adicionar</button>
+    </form>
+    <form method="get" action="{{route('retorno')}}">
+        @csrf
+        <button class="btn btn btn-success mt-2 ">Concluir</button>
     </form>
 
 @endsection

@@ -25,20 +25,21 @@
 
 <div class="row d-flex justify-content-center mt-5">
     <div class="col-5 mt-5" >
-        <form method="post"action="estudante/create/{{$id_usuario->id}}">
-            @csrf
+        <form method="get"action="usuario/create">
+
             <div class="form-group bg-light p-3 shadow-sm " style="border-radius: 30px; height: 180px;">
                 <button class="btn btn-light col-12" style="height: 100%">SOU EGRESSO</button>
             </div>
+            <input type="hidden" value="1" name="tipo">
         </form>
     </div>
     <div class="col-5 mt-5" >
-        <form method="post" action="empresas/create/{{$id_usuario->id}}">
-            @csrf
+        <form method="get" action="usuario/create">
 
             <div class="form-group bg-light p-3 shadow-sm " style="border-radius: 30px; height: 180px;">
                 <button class="btn btn-light col-12" style="height: 100%">SOU EMPRESA</button>
             </div>
+            <input type="hidden" value="2" name="tipo">
         </form>
     </div>
 </div>
