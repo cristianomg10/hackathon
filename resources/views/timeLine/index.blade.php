@@ -15,9 +15,12 @@
            width: 100%;
            height: 100%;
            background-attachment: fixed;
+
             background-image: url("images/background.png");
-            background-size: cover;
+            background-position: center center;
             background-repeat: no-repeat;
+            
+            background-size:cover;
         }
         .opcoes{
             font-size: 1.2em;
@@ -54,6 +57,7 @@
                         <a class="nav-link " href="/dashboard">Dashboard</a>
                     </li>
 
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         Enquetes
@@ -63,16 +67,18 @@
                         <a class="dropdown-item" href="enquetes">Listar</a>
                     </div>
                 </li>
+                  @endif
                 <li class="nav-item opcao">
                     <a class="nav-link " href="/timeline">Sair</a>
                 </li>
-                @endif
+              
             </ul>
 
 
             </div>
 
     </nav>
+
     <div class="container-fluid d-flex justify-content-center row m-auto mb-1">
         <div class="bg-light col-sm-12 col-md-7 col-bg-5 mt-2 p-3 m-sm-1" style="border-radius: 30px; min-height: 150px">
             <h2 class="text-center">Enquete: {{$enquete->pergunta}}
