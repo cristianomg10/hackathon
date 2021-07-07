@@ -1,0 +1,13 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Questionario extends Model
+{
+    use SoftDeletes;
+    protected $fillable =
+        ['status','validade','id_usuario','titulo'];
+}

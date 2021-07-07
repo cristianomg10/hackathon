@@ -1,40 +1,34 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>index</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-        #excluir{
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">nome</th>
-        <th scope="col">id_curso</th>
-        <th scope="col">Funcões</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
+@extends('../layout')
 
-            <th scope="row">{{$Turma->id}}</th>
+@section('header')
+    <h1 class="display-4">{{$Turma->nome}}</h1>
+@endsection
+
+@section('content')
+    <table class="table bg-light rounded">
+        <thead style="background-color:lightgreen">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>
+            <th scope="col">ID CURSO</th>
+            <th scope="col">CREATED_AT</th>
+            <th scope="col">UPDATED_AT</th>
+            <th scope="col">DELETED_AT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{$Turma->id}}</td>
             <td>{{$Turma->nome}}</td>
             <td>{{$Turma->id_curso}}</td>
-
+            <td>{{$Turma->created_at}}</td>
+            <td>{{$Turma->updated_at}}</td>
+            <td>{{$Turma->deleted_at}}</td>
         </tr>
-    </tbody>
-</table>
-</body>
-</html>
+        </tbody>
+    </table>
+    <a href="/turmas"><button class="btn btn btn-secondary mt-2 "><i class="fas fa-arrow-left"></i></button></a>
+@endsection
+
 
 

@@ -8,7 +8,7 @@
     <form method="post" action="/abrangencia_empresa/update/{{$abrangenciaempresas->id}}">
         @csrf
         @method('PUT')
-        <div>
+        <div class="form-group bg-light p-2 rounded">
             <label for="id_empresa">ID Empresa:</label>
             <input type="number" required class="form-control" name="id_empresa" placeholder="{{$abrangenciaempresas->id_cidade}}">
             <label for="id_empresa">ID Cidade:</label>

@@ -45,4 +45,9 @@ class ResponsavelRecrutamentoRHController extends Controller
         ResponsavelRecrutamentoRH::find($id)->update($request->all());
         return redirect("/responsavel_recrutamento_rh");
     }
+    public function show($id)
+    {
+        $rrrh = ResponsavelRecrutamentoRH::find($id);
+        return view("/responsavel_recrutamento_rh/show")->with(['rrrh'=>$rrrh]);
+    }
 }

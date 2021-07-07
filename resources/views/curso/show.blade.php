@@ -1,49 +1,44 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>index</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-        #excluir{
-            display: inline-block;
-        }
-    </style>
-</head>
-<body>
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">instituição</th>
-        <th scope="col">nome</th>
-        <th scope="col">turno</th>
-        <th scope="col">nivel</th>
-        <th scope="col">cidade</th>
-        <th scope="col">ano ingresso</th>
-        <th scope="col">semestre ingresso</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr>
+@extends('../layout')
 
-            <th scope="row">{{$Curso->id}}</th>
-            <td>{{$Curso->id_instituicao}}</td>
+@section('header')
+    <h1 class="display-4">Curso: {{$Curso->nome}}</h1>
+@endsection
+
+@section('content')
+    <table class="table bg-light rounded">
+        <thead style="background-color:lightgreen">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>
+            <th scope="col">ID INSTIUIÇÃO</th>
+            <th scope="col">TURNO</th>
+            <th scope="col">NÍVEL</th>
+            <th scope="col">ID CIDADE</th>
+            <th scope="col">ANO INICIAL</th>
+            <th scope="col">SEMESTRE INICIAL</th>
+            <th scope="col">CREATED_AT</th>
+            <th scope="col">UPDATED_AT</th>
+            <th scope="col">DELETED_AT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{$Curso->id}}</td>
             <td>{{$Curso->nome}}</td>
+            <td>{{$Curso->id_instituicao}}</td>
             <td>{{$Curso->turno}}</td>
             <td>{{$Curso->nivel}}</td>
             <td>{{$Curso->id_cidade}}</td>
             <td>{{$Curso->ano_inicial_oferta}}</td>
             <td>{{$Curso->semestre_inicial_oferta}}</td>
-
+            <td>{{$Curso->created_at}}</td>
+            <td>{{$Curso->updated_at}}</td>
+            <td>{{$Curso->deleted_at}}</td>
         </tr>
-    </tbody>
-</table>
-</body>
-</html>
+        </tbody>
+    </table>
+    <a href="/cursos"><button class="btn btn btn-secondary mt-2 "><i class="fas fa-arrow-left"></i></button></a>
+@endsection
+
 
 

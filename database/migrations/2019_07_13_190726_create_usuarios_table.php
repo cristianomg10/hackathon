@@ -13,13 +13,13 @@ class CreateUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('usuario', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('login',255);
-            $table->string('senha',255);
-            $table->string('email',255);
-            $table->integer('id_pergunta_secreta');
-            $table->string('resposta_pergunta_secreta',500);
+            $table->string('login');
+            $table->string('senha');
+            $table->string('email')->unique();
+            $table->bigInteger('id_pergunta_secreta');
+            $table->string('resposta_pergunta_secreta');
             $table->integer('perfil');
             $table->timestamps();
             $table->softDeletes();
@@ -33,6 +33,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('usuario');
     }
 }
